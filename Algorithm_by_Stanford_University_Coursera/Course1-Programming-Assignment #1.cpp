@@ -15,13 +15,13 @@ string multiply(string num1, string num2)
     int x = 0;
     int y = 0;
 
-    for (int i=n1-1; i>=0; i--)
+    for (int i=n1-1; i>=0; --i)
     {
         int carry = 0;
         int n1 = num1[i] - '0';
 
         y = 0;
-        for (int j=n2-1; j>=0; j--)
+        for (int j=n2-1; j>=0; --j)
         {
             int n2 = num2[j] - '0';
 
@@ -31,18 +31,18 @@ string multiply(string num1, string num2)
 
             result[x + y] = sum % 10;
 
-            y++;
+            ++y;
         }
 
         if (carry > 0)
             result[x + y] += carry;
 
-        x++;
+        ++x;
     }
 
     int i = result.size() - 1;
     while (i>=0 && result[i] == 0)
-       i--;
+       --i;
 
     if (i == -1)
        return "0";
